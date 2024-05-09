@@ -1,0 +1,24 @@
+<div class="p-6 m-4 d-flex shadow-lg align-items-center justify-content-center border-4 rounded">
+    <div class="bg-white rounded">
+        <div class="mb-4">
+            <form [formGroup]="newTodoForm" class="flex mt-4" (ngSubmit)="addTask()">
+                <input class="shadow appearance-none border rounded w-full py-2 px-3 mr-4 text-muted" placeholder="Add Todo" formControlName="todoItem">
+                <button type='submit' class="rounded bg-primary border-0 text-white p-2">Add</button>
+            </form>
+        </div>
+        <div>
+            <div class="flex mb-4 items-center" *ngFor= "let value of taskList; index as i">
+                <p class="w-full text-grey-darkest" [ngClass]="{'line-through': value.completed}">{{value.name}}</p>
+                <button
+                    class="p-2 ml-4 mr-2 border-2 rounded  text-white border-0 bg-success" (click)="markDone(value)">Done</button>
+                <button
+                    class=" p-2 ml-2 border-2 rounded text-white border-0  bg-danger" (click)="removeTask(i)">Remove</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- <div class="parent">
+  <div class="child"></div>
+</div> -->
